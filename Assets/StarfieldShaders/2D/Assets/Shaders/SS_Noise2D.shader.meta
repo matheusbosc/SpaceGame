@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4eb43ac4c321408429dcf62a7d3146ad
+timeCreated: 1548411030
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/2D/Assets/Shaders/SS_Noise2D.shader
+  uploadId: 363482

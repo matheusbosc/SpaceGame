@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 0936d45ad25284c4394fe86535109bc9
+timeCreated: 1558102676
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/3D/Assets/Scripts/Editor/SS_Noise3DWarpEditor.cs
+  uploadId: 363482

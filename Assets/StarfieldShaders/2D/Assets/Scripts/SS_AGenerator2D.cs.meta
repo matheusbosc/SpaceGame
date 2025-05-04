@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 8877bce1ac6805242821b793b586c293
+timeCreated: 1557931091
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/2D/Assets/Scripts/SS_AGenerator2D.cs
+  uploadId: 363482

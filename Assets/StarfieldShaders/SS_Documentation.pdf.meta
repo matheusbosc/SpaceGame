@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fe65a5c8b2266964f9579a91f86c6bd5
+timeCreated: 1584266191
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/SS_Documentation.pdf
+  uploadId: 363482

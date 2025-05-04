@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 52dc605af4edca649aedf419cddcb6b7
+timeCreated: 1546688785
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/2D/Demo/SS_Warp2D.unity
+  uploadId: 363482

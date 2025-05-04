@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3128118c9106bff42be890b4859084f9
+timeCreated: 1546688138
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/3D/Assets/Shaders/SS_Starfield3DWarp.shader
+  uploadId: 363482

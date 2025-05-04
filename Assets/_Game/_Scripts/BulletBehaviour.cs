@@ -3,6 +3,8 @@
 public class BulletBehaviour : MonoBehaviour
 {
 	public int damageAmount = 2;
+
+	public bool isEnemyBullet = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,11 +18,11 @@ public class BulletBehaviour : MonoBehaviour
     }
     
 	// OnCollisionEnter is called when this collider/rigidbody has begun touching another rigidbody/collider.
-	private void OnCollisionEnter(Collision collisionInfo)
+	private void OnTriggerEnter(Collider other)
 	{
-		if (collisionInfo.gameObject.CompareTag("Player") || collisionInfo.gameObject.CompareTag("Enemy"))
+		if ((isEnemyBullet ? other.gameObject.CompareTag("Player") : other.gameObject.CompareTag("Enemy")))
 		{
-			var health = collisionInfo.gameObject.GetComponent<Health>();
+			var health = other.gameObject.GetComponent<Health>();
 			
 			health.LoseHealth(damageAmount);
 			// Destroy VFX

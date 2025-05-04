@@ -29,6 +29,9 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-410087039-0
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-832575517-0
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-330585543-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-327807845-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1973989754-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-98072764-0
         values:
         - colorIndex: 7
           iconNameOrGuid: AvatarMask On Icon
@@ -50,5 +53,11 @@ MonoBehaviour:
           iconNameOrGuid: 
         - colorIndex: 4
           iconNameOrGuid: 
-        - colorIndex: 0
+        - colorIndex: 3
           iconNameOrGuid: Camera Icon
+        - colorIndex: 2
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 1
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 9
+          iconNameOrGuid: Settings Icon

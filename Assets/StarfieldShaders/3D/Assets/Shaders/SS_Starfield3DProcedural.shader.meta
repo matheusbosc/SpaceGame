@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d826b67567a3a25488fbfec75c7d1233
+timeCreated: 1558006001
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/3D/Assets/Shaders/SS_Starfield3DProcedural.shader
+  uploadId: 363482

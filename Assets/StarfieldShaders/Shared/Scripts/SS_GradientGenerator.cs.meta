@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 0f7f5267d96d3e640b12847f0f33595e
+timeCreated: 1561722851
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/Shared/Scripts/SS_GradientGenerator.cs
+  uploadId: 363482

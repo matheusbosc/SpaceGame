@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bd3ffecda90f43c4e87eb6fb70717082
+timeCreated: 1546688791
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/3D/Demo/SS_Warp3D (geom).unity
+  uploadId: 363482

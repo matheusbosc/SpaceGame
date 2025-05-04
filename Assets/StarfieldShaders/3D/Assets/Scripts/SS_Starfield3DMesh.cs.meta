@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: ee0b0ee57f287cc42b1d41b24cdad8f1
+timeCreated: 1580490880
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/3D/Assets/Scripts/SS_Starfield3DMesh.cs
+  uploadId: 363482

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ba41009809f1b41489e76177d556eff2
+timeCreated: 1548619229
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/Shared/Shaders/SS_StarsCG.cginc
+  uploadId: 363482

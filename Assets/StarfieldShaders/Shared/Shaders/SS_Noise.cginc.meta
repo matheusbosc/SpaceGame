@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0ed433a1e5601d842a5d58722b2a37fa
+timeCreated: 1548619229
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/Shared/Shaders/SS_Noise.cginc
+  uploadId: 363482

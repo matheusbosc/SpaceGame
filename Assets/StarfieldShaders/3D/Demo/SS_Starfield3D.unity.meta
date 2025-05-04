@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ad8e0d1738a33804ebd837c1af47fad6
+timeCreated: 1546688791
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/3D/Demo/SS_Starfield3D.unity
+  uploadId: 363482

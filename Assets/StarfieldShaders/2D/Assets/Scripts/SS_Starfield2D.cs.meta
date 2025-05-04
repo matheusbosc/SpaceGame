@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: d6af7a7ee70098142aa1e227f5259755
+timeCreated: 1579985851
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/2D/Assets/Scripts/SS_Starfield2D.cs
+  uploadId: 363482

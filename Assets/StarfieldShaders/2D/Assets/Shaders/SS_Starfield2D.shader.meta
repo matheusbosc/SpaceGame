@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c0fa7bad4024d564d8372cfa512683bb
+timeCreated: 1579987560
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/2D/Assets/Shaders/SS_Starfield2D.shader
+  uploadId: 363482

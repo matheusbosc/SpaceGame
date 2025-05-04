@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ad7474f0cc403784eb0de5e30f67044d
+timeCreated: 1548411030
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136597
+  packageName: Starfield Shaders
+  packageVersion: 1.1.9
+  assetPath: Assets/StarfieldShaders/3D/Assets/Shaders/SS_Noise3DWarp.shader
+  uploadId: 363482

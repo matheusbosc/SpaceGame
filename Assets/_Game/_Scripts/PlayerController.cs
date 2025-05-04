@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
 
     public Rigidbody rb;
-    public float xSpeed = 4, ySpeed = 4;
+    [FormerlySerializedAs("xSpeed")] public float speed = 4;
+    public float shootTime = 0.1f;
 
     public Transform shootPoint;
 	public GameObject bulletPrefab;
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
             _canShoot = false;
             GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, bulletPrefab.transform.rotation);
             bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0,0,17);
-            StartCoroutine(WaitForShoot(0.06f));
+            StartCoroutine(WaitForShoot(shootTime));
             Destroy(bullet, 4);
         }
     }
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
         float y = Input.GetAxisRaw("Vertical");
 
         Vector3 move = Vector3.Normalize(new Vector3(x,0,y));
-        move *= xSpeed;
+        move *= speed;
 
 	    if (x == 0 && y == 0){
             rb.linearVelocity = Vector3.zero;
