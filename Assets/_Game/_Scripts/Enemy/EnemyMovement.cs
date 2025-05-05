@@ -16,28 +16,31 @@ namespace _Game._Scripts.Enemy
         private bool _canShoot = true;
 
         void Update() {
-            if (currentIndex < path.waypoints.Length) {
-                Vector3 target = path.waypoints[currentIndex];
-                transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+	        if (path != null)
+	        {
+	        	if (currentIndex < path.waypoints.Length) {
+		        	Vector3 target = path.waypoints[currentIndex];
+		        	transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-                if (Vector3.Distance(transform.position, target) < 0.1f)
-                    currentIndex++;
-            }
-            else
-            {
-                currentIndex = 0;
-                Vector3 target = path.waypoints[currentIndex];
-                transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+		        	if (Vector3.Distance(transform.position, target) < 0.1f)
+			        	currentIndex++;
+	        	}
+	        	else
+	        	{
+		        	currentIndex = 0;
+		        	Vector3 target = path.waypoints[currentIndex];
+		        	transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-                if (Vector3.Distance(transform.position, target) < 0.1f)
-                    currentIndex++;
-            }
+		        	if (Vector3.Distance(transform.position, target) < 0.1f)
+			        	currentIndex++;
+	        	}
+	        }
 
             if (_canShoot)
             {
                 _canShoot = false;
                 GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, bulletPrefab.transform.rotation);
-                bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0,0,17);
+	            bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0,0,-17);
                 StartCoroutine(WaitForShoot(shootTime));
                 Destroy(bullet, 4);
             }

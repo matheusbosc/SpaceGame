@@ -4,7 +4,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
 	public int maxHealth = 100;
-	private int currentHealth;
+	[HideInInspector] public int currentHealth;
 	public bool isPlayer = false;
 	public WaveManager wM;
 	

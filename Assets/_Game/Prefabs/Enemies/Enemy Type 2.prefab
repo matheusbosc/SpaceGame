@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 0}
-  speed: 4
+  speed: 2.5
   shootTime: 1
   shootPoint: {fileID: 5133552116190539827}
   bulletPrefab: {fileID: 6999499180161059670, guid: 6634e19046b774b4e954eee80b92c2a8, type: 3}
