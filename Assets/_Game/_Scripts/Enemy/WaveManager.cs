@@ -1,6 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Playables;
+using Random = UnityEngine.Random;
 
 namespace _Game._Scripts.Enemy
 {
@@ -9,8 +13,16 @@ namespace _Game._Scripts.Enemy
         private int currentWave = 0;
         private int currentLevel = 0;
         private int aliveEnemies = 0;
+        
+        public float splineSpeed = 0.06f;
+        
+        public PlayableDirector director;
+        public double loopEndTime = 3.0; // Time in seconds to loop back to
+        public double loopStartTime = 0.0;
 
-	    private bool canSpawn = true, allHasSpawned = false;
+        public bool shouldLoop = true;
+
+        public PlayerController player;
 	    
 	    void Start() => StartWave();
 
@@ -20,32 +32,30 @@ namespace _Game._Scripts.Enemy
             Wave wave = levels[currentLevel].waves[currentWave];
             
 	        foreach (var group in wave.enemyGroups) {
-            	
 		        StartCoroutine(Spawn(2, group, group.countPerType - 1));
-            	
-		        /*
-	            int i = 0;
-	            
-	            print ("Starting Loop");
-                
-	            while (!allHasSpawned)
-	            {
-	            	if (i < group.countPerType && canSpawn)
-	            	{
-	            		canSpawn = false;
-		            	StartCoroutine(Spawn(2, group));
-		            	
-		            	GameObject enemy = Instantiate(group.enemyPrefabs[Random.Range(0, group.enemyPrefabs.Length)], group.path.waypoints[0], Quaternion.identity);
-		            	enemy.GetComponent<EnemyMovement>().path = group.path;
-		            	aliveEnemies++;
-		            	canSpawn = true;
-		            	
-		            i++;
-		            }
-		        }*/
             }
 
             
+        }
+
+        private void Update()
+        {
+            if (shouldLoop && director.time >= loopEndTime && director.time < 100)
+            {
+                director.time = loopStartTime;
+                director.Evaluate(); // Force update to new time
+            }
+
+            if (!shouldLoop && director.time >= 277)
+            {
+                shouldLoop = true;
+            }
+
+            if (shouldLoop && director.time >= 279)
+            {
+                director.time = 277;
+                director.Evaluate();
+            }
         }
 
         public void EnemyDied() {
@@ -56,7 +66,15 @@ namespace _Game._Scripts.Enemy
                 {
                     StartCoroutine(NewWave(3));
                 }
-                else Debug.Log("Level Complete!");
+                else
+                {
+                    Debug.Log("Level Complete!");
+                    shouldLoop = false;
+                    director.Play();
+                    currentLevel++;
+                    currentWave = 0;
+                    player.animator.enabled = true;
+                }
             }
         }
 

@@ -34,6 +34,16 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-98072764-0
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1090813505-0
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1585661939-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-870342752-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-735289159-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-2100672392-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1985336472-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1437409488-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1411572518-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1742726372-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1354852095-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1856539023-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1829106146-0
         values:
         - colorIndex: 7
           iconNameOrGuid: AvatarMask On Icon
@@ -55,7 +65,7 @@ MonoBehaviour:
           iconNameOrGuid: 
         - colorIndex: 4
           iconNameOrGuid: 
-        - colorIndex: 3
+        - colorIndex: 7
           iconNameOrGuid: Camera Icon
         - colorIndex: 2
           iconNameOrGuid: AvatarMask On Icon
@@ -67,3 +77,23 @@ MonoBehaviour:
           iconNameOrGuid: Settings Icon
         - colorIndex: 9
           iconNameOrGuid: Settings Icon
+        - colorIndex: 4
+          iconNameOrGuid: ParticleSystem Icon
+        - colorIndex: 3
+          iconNameOrGuid: Canvas Icon
+        - colorIndex: 7
+          iconNameOrGuid: 
+        - colorIndex: 7
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 7
+          iconNameOrGuid: Camera Icon
+        - colorIndex: 2
+          iconNameOrGuid: TrailRenderer Icon
