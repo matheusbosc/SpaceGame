@@ -20,7 +20,7 @@ namespace _Game._Scripts.Enemy
         public double loopEndTime = 3.0; // Time in seconds to loop back to
         public double loopStartTime = 0.0;
 
-        public bool shouldLoop = true;
+        public bool shouldLoop = true, loopSecond = false;
 
         public PlayerController player;
 	    
@@ -40,20 +40,20 @@ namespace _Game._Scripts.Enemy
 
         private void Update()
         {
-            if (shouldLoop && director.time >= loopEndTime && director.time < 100)
+            if (shouldLoop && director.time >= loopEndTime)
             {
                 director.time = loopStartTime;
                 director.Evaluate(); // Force update to new time
             }
 
-            if (!shouldLoop && director.time >= 277)
+            if (!loopSecond && director.time >= 100)
             {
-                shouldLoop = true;
+                loopSecond = true;
             }
 
-            if (shouldLoop && director.time >= 279)
+            if (loopSecond && director.time >= 279/60)
             {
-                director.time = 277;
+                director.time = 277 / 60;
                 director.Evaluate();
             }
         }
