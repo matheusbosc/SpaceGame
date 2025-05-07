@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Game._Scripts.Enemy;
+using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,10 @@ public class GameManager : MonoBehaviour
 	public int coins;
 
 	public Color normalHealth, medHealth, badHealth;
+
+	public bool isPaused = false;
+
+	public WaveManager wM;
 	
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -67,5 +72,15 @@ public class GameManager : MonoBehaviour
 	public void MainMenu()
 	{
 		SceneManager.LoadScene("MainMenu");
+	}
+
+	void Pause()
+	{
+		if (!isPaused)
+		{
+			isPaused = true;
+			wM.director.Pause();
+			
+		}
 	}
 }

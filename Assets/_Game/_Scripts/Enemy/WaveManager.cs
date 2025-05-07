@@ -23,14 +23,14 @@ namespace _Game._Scripts.Enemy
         public double loopEndTime = 3.0; // Time in seconds to loop back to
         public double loopStartTime = 0.0;
 
-	    private bool shouldLoop = true, loopSecond = true, newLevel = false, _lerpingToBasePos = false, _playerDied = false, loopingDeathScreen = false;
+	    private bool shouldLoop = true, loopSecond = true, newLevel = false, _lerpingToBasePos = false, _playerDied = false, loopingDeathScreen = false, win = false;
 
         public PlayerController player;
 
         public int bulletDamage = 2;
 	    public int levelsSinceLastChange = 0;
         
-	    public int a = 990;
+	    public int winStart, winEnd;
 
         public GameManager gM;
         //public Animator playerAnim;
@@ -63,20 +63,27 @@ namespace _Game._Scripts.Enemy
                 director.Evaluate(); // Force update to new time
             }
 	        //print("a");
-	        if (director.time >= 602 / 60 && loopSecond)
+	        if (director.time >= 10f && loopSecond)
             {
-		        director.time = 600 / 60;
+		        director.time = 10f;
 		        print("time set to 10");
             }
 
             if (newLevel && director.time >= 720 / 60)
             {
+	            director.Resume();
                 newLevel = false;
                 shouldLoop = true;
                 director.time = 0;
                 StartWave();
                 player.canInteract = true;
                 player.animator.enabled = false;
+            }
+
+            if (!_lerpingToBasePos && director.time >= 26.5)
+            {
+	            director.Pause();
+	            print("reached end");
             }
 
             if (_lerpingToBasePos)
@@ -88,6 +95,10 @@ namespace _Game._Scripts.Enemy
                     shouldLoop = false;
                     _lerpingToBasePos = false;
 	                player.animator.enabled = true;
+	                if (win)
+	                {
+		                director.time = 20;
+	                }
                 }
             }
             
@@ -119,7 +130,13 @@ namespace _Game._Scripts.Enemy
                     director.Play();
                     currentLevel++;
                     currentWave = 0;
-                    loopSecond = true;
+                    if (currentLevel >= levels.Count)
+                    {
+	                    loopSecond = false;
+	                    print("win");
+	                    win = true;
+
+                    } else loopSecond = true;
                     player.canInteract = false;
                     gM.AddCoins(10);
 
@@ -163,6 +180,8 @@ namespace _Game._Scripts.Enemy
 	    	newLevel = false;
 	    	_playerDied = true;
 	    }
+	    
+	    
     }
 
 }

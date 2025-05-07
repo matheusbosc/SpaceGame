@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]public bool canInteract = true;
 	[HideInInspector]public bool _shootReload = false;
 	public Transform explosionParticles;
+    
+    public Vector3 defaultPos, defaultRot;
 
     public Animator animator;
 
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         animator.enabled = false;
+        gameObject.transform.position = defaultPos;
+        gameObject.transform.eulerAngles = defaultRot;
     }
 
     void Update()
