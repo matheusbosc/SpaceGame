@@ -15,6 +15,8 @@ namespace _Game._Scripts.Enemy
 
         private bool _canShoot = true;
 
+        public WaveManager wM;
+
         void Update() {
 	        if (path != null)
 	        {
@@ -41,6 +43,7 @@ namespace _Game._Scripts.Enemy
                 _canShoot = false;
                 GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, bulletPrefab.transform.rotation);
 	            bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0,0,-17);
+	            bullet.GetComponent<BulletBehaviour>().damageAmount = wM.bulletDamage;
                 StartCoroutine(WaitForShoot(shootTime));
                 Destroy(bullet, 4);
             }

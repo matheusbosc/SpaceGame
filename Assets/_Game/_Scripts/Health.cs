@@ -7,12 +7,14 @@ public class Health : MonoBehaviour
 	[HideInInspector] public int currentHealth;
 	public bool isPlayer = false;
 	public WaveManager wM;
+	public GameManager gM;
 	
 	// Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
 	private void Start()
 	{
 		currentHealth = maxHealth;
 		wM = FindFirstObjectByType<WaveManager>().GetComponent<WaveManager>();
+		gM = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
 	}
 	
 	public void LoseHealth(int h)
@@ -21,6 +23,10 @@ public class Health : MonoBehaviour
 		if (currentHealth <= 0)
 		{
 			Die();
+			if (isPlayer)
+			{
+				gM.LoseCoins(4);
+			}
 		}
 		
 		print(gameObject.name + ": " + currentHealth);

@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour
     [FormerlySerializedAs("xSpeed")] public float speed = 4;
     public float shootTime = 0.1f;
 
-    public Transform shootPoint;
+    public Transform[] shootPoint;
+    public Transform[] barrelPositions;
 	public GameObject bulletPrefab;
 
-    private bool _canShoot = true;
+    [HideInInspector]public bool canInteract = true;
+    [HideInInspector]public bool _shootReload = false;
 
     public Animator animator;
 
@@ -25,23 +27,31 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && _canShoot){
-            _canShoot = false;
-            GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, bulletPrefab.transform.rotation);
-            bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0,0,17);
-            StartCoroutine(WaitForShoot(shootTime));
-            Destroy(bullet, 4);
+        if (Input.GetKey(KeyCode.Space) && canInteract && !_shootReload){
+            _shootReload = true;
+            foreach (var barrel in shootPoint)
+            {
+                GameObject bullet = Instantiate(bulletPrefab, barrel.position, bulletPrefab.transform.rotation);
+                bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0,0,17);
+                StartCoroutine(WaitForShoot(shootTime));
+                Destroy(bullet, 4);
+            }
         }
     }
 
     private IEnumerator WaitForShoot(float t){
         yield return new WaitForSeconds(t);
-        _canShoot = true;
+        _shootReload = false;
     }
 
 
     private void FixedUpdate()
     {
+        if (!canInteract)
+        {
+            rb.linearVelocity = Vector3.zero;
+            return;
+        }
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 

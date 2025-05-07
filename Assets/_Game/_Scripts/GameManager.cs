@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 	
 	// Stats
 	public int coins;
+
+	public Color normalHealth, medHealth, badHealth;
 	
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,10 +28,33 @@ public class GameManager : MonoBehaviour
     {
 	    coinCounter.text = coins.ToString();
 	    healthText.text = playerHealth.currentHealth.ToString();
+
+	    if (playerHealth.currentHealth <= playerHealth.maxHealth * .5f && playerHealth.currentHealth > playerHealth.maxHealth * .2f)
+	    {
+		    healthText.color = medHealth;
+	    } else if (playerHealth.currentHealth <= playerHealth.maxHealth * .2f)
+	    {
+		    healthText.color = badHealth;
+	    }
+	    else
+	    {
+		    healthText.color = normalHealth;
+	    }
+			
     }
     
-	void RefreshInfo()
+	public void RefreshInfo()
 	{
 		maxHealthText.text = playerHealth.maxHealth.ToString();
+	}
+
+	public void AddCoins(int amount)
+	{
+		coins += amount;
+	}
+
+	public void LoseCoins(int amount)
+	{
+		coins -= amount;
 	}
 }
