@@ -70,6 +70,11 @@ namespace _Game._Scripts
         {
             if (gM.coins >= healPrice)
             {
+            	if (gM.playerHealth.currentHealth == gM.playerHealth.maxHealth)
+            	{
+            		StartCoroutine(ShowMessage("Already Healed"));
+            	}
+            	
                 gM.coins -= healPrice;
                 gM.playerHealth.currentHealth = gM.playerHealth.maxHealth;
                 StartCoroutine(ShowMessage("Healed"));

@@ -43,7 +43,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 02e36d86072b786418fa0dd99498958f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3eccebaecd19d55439f46d223b71001d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -77,7 +77,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Curtains
+  m_Name: Death Screen
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -104,7 +104,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7009686243922895633}
-    m_Position: {x: 320.53668, y: 98.64183, z: 0}
+    m_Position: {x: 320, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4083950748551522121}
     m_Position: {x: 403.77872, y: 204.77544, z: 0}

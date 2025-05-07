@@ -23,12 +23,14 @@ namespace _Game._Scripts.Enemy
         public double loopEndTime = 3.0; // Time in seconds to loop back to
         public double loopStartTime = 0.0;
 
-	    private bool shouldLoop = true, loopSecond = true, newLevel = false, _lerpingToBasePos = false;
+	    private bool shouldLoop = true, loopSecond = true, newLevel = false, _lerpingToBasePos = false, _playerDied = false, loopingDeathScreen = false;
 
         public PlayerController player;
 
         public int bulletDamage = 2;
-        public int levelsSinceLastChange = 0;
+	    public int levelsSinceLastChange = 0;
+        
+	    public int a = 990;
 
         public GameManager gM;
         //public Animator playerAnim;
@@ -61,9 +63,9 @@ namespace _Game._Scripts.Enemy
                 director.Evaluate(); // Force update to new time
             }
 	        //print("a");
-	        if (director.time >= 10.1 && loopSecond)
+	        if (director.time >= 602 / 60 && loopSecond)
             {
-		        director.time = 10;
+		        director.time = 600 / 60;
 		        print("time set to 10");
             }
 
@@ -85,9 +87,20 @@ namespace _Game._Scripts.Enemy
                 {
                     shouldLoop = false;
                     _lerpingToBasePos = false;
-                    player.animator.enabled = true;
+	                player.animator.enabled = true;
                 }
             }
+            
+	        if (_playerDied && !loopingDeathScreen)
+	        {
+	        	director.time = 900 / 60;
+	        	loopingDeathScreen = true;
+	        }
+	        
+	        if (loopingDeathScreen && director.time >= 16.5)
+	        {
+	        	director.time = 16.5;
+	        }
         }
 
         public void EnemyDied() {
@@ -142,6 +155,14 @@ namespace _Game._Scripts.Enemy
                 StartCoroutine(Spawn(2, group, amount - 1));
             }
         }
+        
+	    public void PlayerDied()
+	    {
+	    	shouldLoop = false;
+	    	loopSecond = false;
+	    	newLevel = false;
+	    	_playerDied = true;
+	    }
     }
 
 }

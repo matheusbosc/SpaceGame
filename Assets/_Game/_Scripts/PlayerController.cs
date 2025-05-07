@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
 	public GameObject bulletPrefab;
 
     [HideInInspector]public bool canInteract = true;
-    [HideInInspector]public bool _shootReload = false;
+	[HideInInspector]public bool _shootReload = false;
+	public Transform explosionParticles;
 
     public Animator animator;
 
@@ -37,6 +38,8 @@ public class PlayerController : MonoBehaviour
                 Destroy(bullet, 4);
             }
         }
+        
+	    explosionParticles.position = transform.position;
     }
 
     private IEnumerator WaitForShoot(float t){

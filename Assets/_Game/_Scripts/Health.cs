@@ -47,8 +47,14 @@ public class Health : MonoBehaviour
 	{
 		//Code For Dying
 		
-		if (!isPlayer) wM.EnemyDied();
+		if (!isPlayer)
+		{
+			wM.EnemyDied();
+			Destroy(gameObject);
+			return;
+		}
 		
-		Destroy(gameObject);
+		wM.PlayerDied();
+		
 	}
 }
