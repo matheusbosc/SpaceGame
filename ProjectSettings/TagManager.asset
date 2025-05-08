@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - WaveManager
   - GameManager
+  - MusicPlayer
   layers:
   - Default
   - TransparentFX

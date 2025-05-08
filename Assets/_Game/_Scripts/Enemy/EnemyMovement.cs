@@ -17,6 +17,8 @@ namespace _Game._Scripts.Enemy
 
         public WaveManager wM;
 
+        public AudioSource shootAudio;
+
         void Update() {
 	        if (path != null)
 	        {
@@ -44,6 +46,7 @@ namespace _Game._Scripts.Enemy
                 GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, bulletPrefab.transform.rotation);
 	            bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0,0,-17);
 	            bullet.GetComponent<BulletBehaviour>().damageAmount = wM.bulletDamage;
+	            shootAudio.Play();
                 StartCoroutine(WaitForShoot(shootTime));
                 Destroy(bullet, 4);
             }

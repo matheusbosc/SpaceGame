@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource shootAudio;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
                 bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0,0,17);
                 StartCoroutine(WaitForShoot(shootTime));
                 Destroy(bullet, 4);
+                shootAudio.Play();
             }
         }
         

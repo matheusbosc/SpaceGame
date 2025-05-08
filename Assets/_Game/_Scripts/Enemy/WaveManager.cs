@@ -66,7 +66,7 @@ namespace _Game._Scripts.Enemy
 	        if (director.time >= 10f && loopSecond)
             {
 		        director.time = 10f;
-		        print("time set to 10");
+		        //print("time set to 10");
             }
 
             if (newLevel && director.time >= 720 / 60)
@@ -83,7 +83,7 @@ namespace _Game._Scripts.Enemy
             if (!_lerpingToBasePos && director.time >= 26.5)
             {
 	            director.Pause();
-	            print("reached end");
+	            //print("reached end");
             }
 
             if (_lerpingToBasePos)
@@ -112,6 +112,8 @@ namespace _Game._Scripts.Enemy
 	        {
 	        	director.time = 16.5;
 	        }
+	        
+	        print("Enemy Amount: " + aliveEnemies);
         }
 
         public void EnemyDied() {
@@ -149,6 +151,8 @@ namespace _Game._Scripts.Enemy
                     _lerpingToBasePos = true;
                 }
             }
+            
+            
         }
 
         IEnumerator NewWave(float t)
