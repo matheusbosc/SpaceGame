@@ -153,7 +153,17 @@ namespace _Game._Scripts.Enemy
 
                     } else loopSecond = true;
                     player.canInteract = false;
-                    gM.AddCoins(10);
+                    if (gM.playerHealth.maxHealth >= 200)
+                    {
+	                    gM.AddCoins(5);
+                    } else if (gM.playerHealth.maxHealth >= 300)
+                    {
+	                    gM.AddCoins(2);
+                    }
+                    else
+                    {
+	                    gM.AddCoins(8);
+                    }
 
                     levelsSinceLastChange += 1;
 	                if (levelsSinceLastChange == 2)
