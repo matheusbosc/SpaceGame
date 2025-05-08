@@ -11,9 +11,9 @@ namespace _Game._Scripts.Enemy
 {
     public class WaveManager : MonoBehaviour {
         public List<Level> levels;
-        private int currentWave = 0;
-        private int currentLevel = 0;
-        private int aliveEnemies = 0;
+        public int currentWave = 0;
+        public int currentLevel = 0;
+        public int aliveEnemies = 0;
 
         public Vector3 basePlayerPos = new Vector3(0, 1.36999989f, -4.05999947f);
         
@@ -23,12 +23,14 @@ namespace _Game._Scripts.Enemy
         public double loopEndTime = 3.0; // Time in seconds to loop back to
         public double loopStartTime = 0.0;
 
-	    private bool shouldLoop = true, loopSecond = true, newLevel = false, _lerpingToBasePos = false, _playerDied = false, loopingDeathScreen = false, win = false;
+	    private bool shouldLoop = true, loopSecond = true, newLevel = false, _lerpingToBasePos = false, _playerDied = false, loopingDeathScreen = false, win = false, canDie = false;
 
         public PlayerController player;
 
         public int bulletDamage = 2;
 	    public int levelsSinceLastChange = 0;
+
+	    private int maxEnemies = 0, totalEnemies = 0;
         
 	    public int winStart, winEnd;
 
@@ -41,8 +43,13 @@ namespace _Game._Scripts.Enemy
 
             
             Wave wave = levels[currentLevel].waves[currentWave];
+            canDie = false;
+            totalEnemies = 0;
+            maxEnemies = 0;
             
-	        foreach (var group in wave.enemyGroups) {
+	        foreach (var group in wave.enemyGroups)
+	        {
+		        maxEnemies += group.countPerType;
 		        StartCoroutine(Spawn(2, group, group.countPerType - 1));
             }
 
@@ -57,6 +64,12 @@ namespace _Game._Scripts.Enemy
 
         private void Update()
         {
+
+	        if (maxEnemies == totalEnemies)
+	        {
+		        canDie = true;
+	        }
+	        
             if (shouldLoop && director.time >= loopEndTime)
             {
                 director.time = loopStartTime;
@@ -119,7 +132,7 @@ namespace _Game._Scripts.Enemy
         public void EnemyDied() {
             aliveEnemies--;
             gM.AddCoins(5);
-            if (aliveEnemies <= 0) {
+            if (aliveEnemies <= 0 && canDie) {
                 currentWave++;
                 if (currentWave < levels[currentLevel].waves.Count)
                 {
@@ -169,6 +182,8 @@ namespace _Game._Scripts.Enemy
 			enemy.GetComponent<EnemyMovement>().path = group.path;
 			enemy.GetComponent<EnemyMovement>().wM = this;
 			aliveEnemies++;
+
+			totalEnemies += 1;
 
             yield return new WaitForSeconds(t);
 

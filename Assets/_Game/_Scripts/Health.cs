@@ -1,15 +1,17 @@
 ﻿using _Game._Scripts.Enemy;
+using Unity.Collections;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
 	public int maxHealth = 100;
-	[HideInInspector] public int currentHealth;
+	[ReadOnly] public int currentHealth;
 	public bool isPlayer = false;
 	public WaveManager wM;
 	public GameManager gM;
 	public ParticleSystem ps;
 	public AudioSource dieAudio, takeDamageAudio;
+	private bool isDead = false;
 	
 	// Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
 	private void Start()
@@ -24,7 +26,7 @@ public class Health : MonoBehaviour
 	{
 		takeDamageAudio.Play();
 		currentHealth -= h;
-		if (currentHealth <= 0)
+		if (currentHealth <= 0 && !isDead)
 		{
 			Die();
 			if (isPlayer)
@@ -50,14 +52,16 @@ public class Health : MonoBehaviour
 	public void Die()
 	{
 		//Code For Dying
+		isDead = true;
 		
 		dieAudio.Play();
 		if (!isPlayer)
 		{
+			
 			wM.EnemyDied();
 			ps.Play();
 			ps.transform.SetParent(transform.parent);
-			ps.gameObject.GetComponent<DestroyAfterTime>().DAT(3);
+			ps.gameObject.GetComponent<DestroyAfterTime>().DAT(1.5f);
 			Destroy(gameObject);
 			return;
 		}
