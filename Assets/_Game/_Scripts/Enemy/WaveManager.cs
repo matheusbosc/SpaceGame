@@ -156,7 +156,7 @@ namespace _Game._Scripts.Enemy
                     gM.AddCoins(10);
 
                     levelsSinceLastChange += 1;
-                    if (levelsSinceLastChange == 1)
+	                if (levelsSinceLastChange == 2)
                     {
                         bulletDamage += 1;
                     }

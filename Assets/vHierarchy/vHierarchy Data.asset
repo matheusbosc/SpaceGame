@@ -99,6 +99,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1182565752-0
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-67844608-0
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-832926941-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1625982547-0
         values:
         - colorIndex: 7
           iconNameOrGuid: AvatarMask On Icon
@@ -262,3 +263,5 @@ MonoBehaviour:
           iconNameOrGuid: 
         - colorIndex: 3
           iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: ParticleSystem Icon
