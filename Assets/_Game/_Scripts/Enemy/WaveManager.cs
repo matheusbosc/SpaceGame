@@ -37,10 +37,11 @@ namespace _Game._Scripts.Enemy
         public GameManager gM;
         //public Animator playerAnim;
 	    
-	    void Start() => StartWave();
+	    void Start() => StartWave(true);
 
-        public void StartWave() {
+        public void StartWave(bool firstWave) {
 
+	        if (firstWave) GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<_Game._Scripts.Leaderboard.Score>().ResetValues();
             
             Wave wave = levels[currentLevel].waves[currentWave];
             canDie = false;
@@ -88,7 +89,7 @@ namespace _Game._Scripts.Enemy
                 newLevel = false;
                 shouldLoop = true;
                 director.time = 0;
-                StartWave();
+                StartWave(false);
                 player.canInteract = true;
                 player.animator.enabled = false;
             }
@@ -150,6 +151,7 @@ namespace _Game._Scripts.Enemy
 	                    loopSecond = false;
 	                    print("win");
 	                    win = true;
+	                    GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<_Game._Scripts.Leaderboard.Score>().Win();
 
                     } else loopSecond = true;
                     player.canInteract = false;
@@ -181,7 +183,7 @@ namespace _Game._Scripts.Enemy
         IEnumerator NewWave(float t)
         {
             yield return new WaitForSeconds(t);
-            StartWave();
+            StartWave(false);
         }
 
         IEnumerator Spawn(float t, WaveData group, int amount)

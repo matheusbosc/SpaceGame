@@ -711,8 +711,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a8a5eaa8494d8f44a84f067b57a5f9ea, type: 2}
   - {fileID: 11400000, guid: 4f901bfb557872446887c8a278d3f4d5, type: 2}
   - {fileID: 11400000, guid: 51799e2f30bf25a42bfb4e3cb3d82d17, type: 2}
-  currentWave: 2
-  currentLevel: 7
+  currentWave: 0
+  currentLevel: 0
   aliveEnemies: 0
   basePlayerPos: {x: 0, y: 1.3699999, z: -4.0599995}
   lerpSpeed: 2.5
