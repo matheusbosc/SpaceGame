@@ -49,5 +49,7 @@ namespace _Game._Scripts.Leaderboard
             yield return new WaitForSeconds(1);
             if (canCount) timeInSeconds++;
         }
+        
+        // TODO: add tags, test
     }
 }
