@@ -73,6 +73,11 @@ public class GameManager : MonoBehaviour
 	{
 		SceneManager.LoadScene("MainMenu");
 	}
+	
+	public void Win()
+	{
+		GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<_Game._Scripts.Leaderboard.Score>().SetScore();
+	}
 
 	void Pause()
 	{

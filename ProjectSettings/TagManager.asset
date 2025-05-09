@@ -8,6 +8,8 @@ TagManager:
   - WaveManager
   - GameManager
   - MusicPlayer
+  - ScoreManager
+  - LeaderboardManager
   layers:
   - Default
   - TransparentFX

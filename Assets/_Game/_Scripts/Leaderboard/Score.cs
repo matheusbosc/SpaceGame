@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using System.Diagnostics;
 
 namespace _Game._Scripts.Leaderboard
 {
@@ -13,11 +14,16 @@ namespace _Game._Scripts.Leaderboard
 
         public string uName = "";
         
-        public TMP_InputField uNameField;
+	    public TMP_InputField uNameField;
+        
+	    Stopwatch watch;
 
         private void Start()
         {
-            DontDestroyOnLoad(this.gameObject);
+	        DontDestroyOnLoad(this.gameObject);
+	        
+	        
+	        watch = new Stopwatch();
         }
 
         public void ResetValues()
@@ -25,7 +31,7 @@ namespace _Game._Scripts.Leaderboard
             damageTaken = 0;
             timeInSeconds = 0;
             canCount = true;
-            StartCoroutine(Count());
+	        watch.Start();
         }
 
         public void IncreaseDamage(int a)
@@ -35,20 +41,23 @@ namespace _Game._Scripts.Leaderboard
 
         public void Win()
         {
-            canCount = false;
-            Invoke("SetScore", 10);
+	        watch.Stop();
+	        TimeSpan ts = watch.Elapsed;
+	        
+	        timeInSeconds = (int)ts.TotalSeconds;
+	        //Invoke("SetScore", 10);
         }
 
-        private void SetScore()
+	    public void SetScore()
         {
-            GameObject.FindGameObjectWithTag("LeaderboardManager").GetComponent<_Game._Scripts.Leaderboard.Leaderboard>().SetLeaderboardEntry(timeInSeconds);
+	        StartCoroutine(setScoreA());
         }
-
-        private IEnumerator Count()
-        {
-            yield return new WaitForSeconds(1);
-            if (canCount) timeInSeconds++;
-        }
+        
+	    private IEnumerator setScoreA()
+	    {
+	    	yield return new WaitForSeconds(1.5f);
+	    	GameObject.FindGameObjectWithTag("LeaderboardManager").GetComponent<_Game._Scripts.Leaderboard.Leaderboard>().SetLeaderboardEntry(timeInSeconds, uName);
+	    }
         
         // TODO: add tags, test
     }

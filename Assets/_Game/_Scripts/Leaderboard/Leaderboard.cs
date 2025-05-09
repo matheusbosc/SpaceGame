@@ -13,7 +13,13 @@ namespace _Game._Scripts.Leaderboard
         public string uName = "";
         public TMP_InputField nameField;
 
-        private string publicKey = "4bafe1da2bf204550f7bfeacb4d7755bdb8981761ef6b65e88f9ab326fe317f6";
+	    private string publicKey = "4bafe1da2bf204550f7bfeacb4d7755bdb8981761ef6b65e88f9ab326fe317f6";
+        
+	    // Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
+	    private void Start()
+	    {
+	    	nameField.text = uName;
+	    }
 
         public void GetLeaderboard()
         {
@@ -27,9 +33,9 @@ namespace _Game._Scripts.Leaderboard
             }));
         }
 
-        public void SetLeaderboardEntry(int t)
+	    public void SetLeaderboardEntry(int t, string n)
         {
-            LeaderboardCreator.UploadNewEntry(publicKey, uName, t, ((msg) =>
+	        LeaderboardCreator.UploadNewEntry(publicKey, n, t, ((msg) =>
             {
                 GetLeaderboard();
             }));
@@ -38,7 +44,9 @@ namespace _Game._Scripts.Leaderboard
         public void SetUname()
         {
             GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<_Game._Scripts.Leaderboard.Score>().uName =
-                nameField.text;
+	            nameField.text;
+                
+	        uName = nameField.text;
         }
     }
 }
