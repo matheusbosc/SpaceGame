@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 	
 	// UI
 	public TextMeshProUGUI coinCounter;
+
+	public GameObject pauseMenu;
 	
 	public TextMeshProUGUI healthText, maxHealthText;
 	
@@ -45,6 +47,12 @@ public class GameManager : MonoBehaviour
 	    else
 	    {
 		    healthText.color = normalHealth;
+	    }
+
+	    if (Input.GetKeyDown(KeyCode.Escape))
+	    {
+		    isPaused = !isPaused;
+		    pauseMenu.SetActive(isPaused);
 	    }
 			
     }

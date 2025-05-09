@@ -14,11 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyGroups:
   - enemyPrefabs:
-    - {fileID: 1826974994743813412, guid: 63a806c063fece7459979e1ecb8f20e4, type: 3}
-    path: {fileID: 11400000, guid: fea839a6d8fbc554a96795674c79051f, type: 2}
-    countPerType: 1
-  - enemyPrefabs:
     - {fileID: 1826974994743813412, guid: a448ad70806ee604ca5d0a2f145004e3, type: 3}
     - {fileID: 1826974994743813412, guid: 30c2c158ea68350418aacd744145aa07, type: 3}
-    path: {fileID: 11400000, guid: d9273c41a0bae6544bbeb9f3cc077278, type: 2}
-    countPerType: 4
+    - {fileID: 1826974994743813412, guid: 30c2c158ea68350418aacd744145aa07, type: 3}
+    path: {fileID: 11400000, guid: 6e573b702149cab40b2d48c3f08fc2b3, type: 2}
+    countPerType: 10

@@ -10,6 +10,7 @@ TagManager:
   - MusicPlayer
   - ScoreManager
   - LeaderboardManager
+  - TimeText
   layers:
   - Default
   - TransparentFX

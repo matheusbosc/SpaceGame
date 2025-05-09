@@ -10,11 +10,13 @@ namespace _Game._Scripts.Leaderboard
     {
         private int damageTaken = 0;
         int timeInSeconds = 0;
-        private bool canCount = true;
+        private bool canCount = false;
 
         public string uName = "";
         
 	    public TMP_InputField uNameField;
+
+	    private TextMeshProUGUI timeText;
         
 	    Stopwatch watch;
 
@@ -31,7 +33,27 @@ namespace _Game._Scripts.Leaderboard
             damageTaken = 0;
             timeInSeconds = 0;
             canCount = true;
-	        watch.Start();
+            //timeText = GameObject.FindGameObjectWithTag("TimeText").GetComponent<TextMeshProUGUI>();
+            if (watch.IsRunning)
+            {
+	            watch.Restart();
+            }
+            else
+            {
+	            watch.Start();
+            }
+        }
+
+        private void Update()
+        {
+	        if (canCount)
+	        {
+		        if (!timeText)
+		        {
+			        timeText = GameObject.FindGameObjectWithTag("TimeText").GetComponent<TextMeshProUGUI>();
+		        }
+		        timeText.text = TimeString((int)watch.Elapsed.TotalSeconds);
+	        }
         }
 
         public void IncreaseDamage(int a)
@@ -42,6 +64,7 @@ namespace _Game._Scripts.Leaderboard
         public void Win()
         {
 	        watch.Stop();
+	        canCount = false;
 	        TimeSpan ts = watch.Elapsed;
 	        
 	        timeInSeconds = (int)ts.TotalSeconds;
@@ -55,8 +78,31 @@ namespace _Game._Scripts.Leaderboard
         
 	    private IEnumerator setScoreA()
 	    {
-	    	yield return new WaitForSeconds(1.5f);
+	    	yield return new WaitForSeconds(0.5f);
 	    	GameObject.FindGameObjectWithTag("LeaderboardManager").GetComponent<_Game._Scripts.Leaderboard.Leaderboard>().SetLeaderboardEntry(timeInSeconds, uName);
+	    }
+	    
+	    private string TimeString(int t)
+	    {
+		    bool isSettingTime = true;
+		    int seconds = 0;
+		    int minutes = 0;
+            
+		    while (isSettingTime)
+		    {
+			    if (t >= 60)
+			    {
+				    minutes++;
+				    t -= 60;
+			    }
+			    else
+			    {
+				    seconds = t;
+				    isSettingTime = false;
+			    }
+		    }
+            
+		    return minutes.ToString("00") + "m " + seconds.ToString("00") + "s";
 	    }
         
         // TODO: add tags, test

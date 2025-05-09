@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -31,6 +32,8 @@ namespace _Game._Scripts.Enemy
 	    public int levelsSinceLastChange = 0;
 
 	    private int maxEnemies = 0, totalEnemies = 0;
+
+	    public TextMeshProUGUI waveText;
         
 	    public int winStart, winEnd;
 
@@ -42,6 +45,8 @@ namespace _Game._Scripts.Enemy
         public void StartWave(bool firstWave) {
 
 	        if (firstWave) GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<_Game._Scripts.Leaderboard.Score>().ResetValues();
+	        
+	        waveText.text = "lvl " + (currentLevel + 1).ToString() + ": wave " + (currentWave + 1).ToString();
             
             Wave wave = levels[currentLevel].waves[currentWave];
             canDie = false;
@@ -211,6 +216,8 @@ namespace _Game._Scripts.Enemy
 	    	newLevel = false;
 	    	_playerDied = true;
 	    }
+	    
+	    
 	    
 	    
     }
