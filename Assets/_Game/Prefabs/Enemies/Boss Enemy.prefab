@@ -161,6 +161,7 @@ MonoBehaviour:
   isPlayer: 0
   wM: {fileID: 0}
   gM: {fileID: 0}
+  sS: {fileID: 0}
   ps: {fileID: 1533144666018092252}
   dieAudio: {fileID: -2612161779853644136}
   takeDamageAudio: {fileID: 4760636028429057053}
@@ -1110,7 +1111,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1932
+    maxNumParticles: 500
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
