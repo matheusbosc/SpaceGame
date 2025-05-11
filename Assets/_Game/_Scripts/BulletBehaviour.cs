@@ -24,7 +24,7 @@ public class BulletBehaviour : MonoBehaviour
 		{
 			var health = other.gameObject.GetComponent<Health>();
 			
-			health.LoseHealth(damageAmount);
+			health.LoseHealth(damageAmount, isEnemyBullet);
 			// Destroy VFX
 			Destroy(gameObject);
 		}

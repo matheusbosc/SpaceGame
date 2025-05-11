@@ -11,10 +11,14 @@ namespace _Game._Scripts.Leaderboard
         [SerializeField] private List<TextMeshProUGUI> names;
         [SerializeField] private List<TextMeshProUGUI> times;
         
+        [SerializeField] private List<TextMeshProUGUI> damageNames;
+        [SerializeField] private List<TextMeshProUGUI> damageAmount;
+        
         public string uName = "";
         public TMP_InputField nameField;
 
 	    private string publicKey = "4bafe1da2bf204550f7bfeacb4d7755bdb8981761ef6b65e88f9ab326fe317f6";
+	    private string damagePublicKey = "c55391251979109e5349ad84605ddcb41e2cd55506470e704cc92de6b17672f6";
         
 	    // Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
 	    private void Start()
@@ -32,11 +36,25 @@ namespace _Game._Scripts.Leaderboard
                     times[i].text = TimeString(msg[i].Score);
                 }
             }));
+            
+            LeaderboardCreator.GetLeaderboard(damagePublicKey, ((msg) =>
+            {
+                for (int i = 0; i < damageNames.Count; i++)
+                {
+                    damageNames[i].text = msg[i].Username;
+                    damageAmount[i].text = msg[i].Score.ToString();
+                }
+            }));
         }
 
-	    public void SetLeaderboardEntry(int t, string n)
+	    public void SetLeaderboardEntry(int t, int d)
         {
 	        LeaderboardCreator.UploadNewEntry(publicKey, PlayerPrefs.GetString("Name"), t, ((msg) =>
+            {
+                
+            }));
+            
+            LeaderboardCreator.UploadNewEntry(damagePublicKey, PlayerPrefs.GetString("Name"), d, ((msg) =>
             {
                 GetLeaderboard();
             }));

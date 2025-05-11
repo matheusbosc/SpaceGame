@@ -79,7 +79,7 @@ namespace _Game._Scripts.Leaderboard
 	    private IEnumerator setScoreA()
 	    {
 	    	yield return new WaitForSeconds(0.5f);
-	    	GameObject.FindGameObjectWithTag("LeaderboardManager").GetComponent<_Game._Scripts.Leaderboard.Leaderboard>().SetLeaderboardEntry(timeInSeconds, uName);
+	    	GameObject.FindGameObjectWithTag("LeaderboardManager").GetComponent<_Game._Scripts.Leaderboard.Leaderboard>().SetLeaderboardEntry(timeInSeconds, damageTaken);
 	    }
 	    
 	    private string TimeString(int t)

@@ -1,4 +1,5 @@
 ﻿using _Game._Scripts.Enemy;
+using _Game._Scripts.Leaderboard;
 using Unity.Collections;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class Health : MonoBehaviour
 	public bool isPlayer = false;
 	public WaveManager wM;
 	public GameManager gM;
+	public Score sS;
 	public ParticleSystem ps;
 	public AudioSource dieAudio, takeDamageAudio;
 	private bool isDead = false;
@@ -19,13 +21,15 @@ public class Health : MonoBehaviour
 		currentHealth = maxHealth;
 		wM = FindFirstObjectByType<WaveManager>().GetComponent<WaveManager>();
 		gM = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+		sS = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<_Game._Scripts.Leaderboard.Score>();
 		//ps.Stop();
 	}
 	
-	public void LoseHealth(int h)
+	public void LoseHealth(int h, bool isEnemy)
 	{
 		takeDamageAudio.Play();
 		currentHealth -= h;
+		if (isEnemy) sS.IncreaseDamage(h);
 		if (currentHealth <= 0 && !isDead)
 		{
 			Die();
