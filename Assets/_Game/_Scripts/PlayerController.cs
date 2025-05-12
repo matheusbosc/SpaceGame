@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
                 GameObject bullet = Instantiate(bulletPrefab, barrel.position, bulletPrefab.transform.rotation);
                 bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0,0,17);
                 StartCoroutine(WaitForShoot(shootTime));
-                Destroy(bullet, 4);
+	            Destroy(bullet, 2);
                 shootAudio.Play();
             }
         }

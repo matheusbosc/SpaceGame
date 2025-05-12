@@ -48,7 +48,7 @@ namespace _Game._Scripts.Enemy
 	            bullet.GetComponent<BulletBehaviour>().damageAmount = wM.bulletDamage;
 	            shootAudio.Play();
                 StartCoroutine(WaitForShoot(shootTime));
-                Destroy(bullet, 3);
+	            Destroy(bullet, 2);
             }
         }
         
